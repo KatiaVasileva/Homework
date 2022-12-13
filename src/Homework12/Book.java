@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Book {
     private final String bookName;
-    public final Author author;
+    private final Author author;
     public int publishingYear;
 
     public Book(String bookName, Author author, int publishingYear) {
