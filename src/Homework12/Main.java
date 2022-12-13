@@ -20,7 +20,7 @@ public class Main {
 
         Author author1 = new Author("Алексей", "Поляринов");
         Book book1 = new Book("Центр тяжести", author1, 2018);
-        book1.setPublishingYear(2019);
+        book1.setPublishingYear(2020);
         System.out.println(book1.getBookName() + ", " + author1.getAuthorName() + " " + author1.getAuthorSurname()
                 + ", год издания: " + book1.getPublishingYear());
 
