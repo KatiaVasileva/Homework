@@ -14,10 +14,6 @@ public class Book {
         this.publishingYear = publishingYear;
     }
 
-    public Book(String bookName, int publishingYear) { // у книги может не быть автора, например, Библия
-        this(bookName, null, publishingYear);
-    }
-
     public String getBookName() {
         return bookName;
     }
@@ -41,7 +37,10 @@ public class Book {
 
     @Override
     public boolean equals(Object other) {
-        if (this.getClass() != other.getClass()) {
+        if (this == other) {
+            return true;
+        }
+        if (other == null || getClass() != other.getClass()) {
             return false;
         }
         Book book = (Book) other;

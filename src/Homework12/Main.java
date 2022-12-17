@@ -40,9 +40,6 @@ public class Main {
         Book book4 = new Book("The Hopkins Manuscript", author4, 1956);
         System.out.println(book4);
 
-        Book book5 = new Book("Библия", 1995);
-        System.out.println(book5);
-
         insertSeparator();
 
 //  Проверка объектов на равенство. Книги являются одинаковыми, если имеют одинаковое название и одинаковое ФИО автора.
