@@ -48,7 +48,7 @@ public class Library {
         }
     }
 
-    //    Блок проверки передаваемых параметров
+//  Блок проверки передаваемых параметров
     public void checkPublishingYear(int publishingYear) {
         if (publishingYear < 1445 || publishingYear > LocalDate.now().getYear()) {
             throw new IllegalArgumentException("Введен недействительный параметр <год издания>: " + publishingYear);

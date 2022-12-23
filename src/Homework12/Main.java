@@ -60,9 +60,37 @@ public class Main {
         System.out.println("Updated List of Books\n");
         library.printAllBooks();
         insertSeparator();
+
+//  Отладка
+        System.out.println("Authors");
+        Author anneCleeves = new Author("Anne", "Cleeves");
+        Author anneCleeves2 = new Author("Anne", "Cleeves");
+        Author sueTownsend = new Author("Sue", "Townsend");
+        System.out.println("Author copies are equal: " + anneCleeves.equals(anneCleeves2));
+        System.out.println("Author copies are equal by hashCode: " + (anneCleeves.hashCode() == anneCleeves2.hashCode()));
+        System.out.println("Author copies are equal: " + anneCleeves.equals(sueTownsend));
+        System.out.println("Author copies are equal by hashCode: " + (anneCleeves.hashCode() == sueTownsend.hashCode()));
+        System.out.println(anneCleeves);
+        System.out.println(sueTownsend);
+        insertSeparator();
+        System.out.println("Books");
+        Book theCrow = new Book("The Crow", anneCleeves, 1999);
+        Book theCrow2 = new Book("The Crow", anneCleeves, 1999);
+        Book theWomanWhoWentToBed = new Book("The Woman Who Went To Bed For A Year", sueTownsend, 2012);
+        System.out.println("Book copies are equal: " + theCrow.equals(theCrow2));
+        System.out.println("Book copies are equal by hashCode: " + (theCrow.hashCode() == theCrow2.hashCode()));
+        System.out.println("Book copies are equal: " + theCrow.equals(theWomanWhoWentToBed));
+        System.out.println("Book copies are equal by hashCode: " + (theCrow.hashCode() == theWomanWhoWentToBed.hashCode()));
+        System.out.println(theCrow);
+        System.out.println(theWomanWhoWentToBed);
+        insertSeparator();
+        System.out.println("Library");
+//        Library library1 = new Library(2);
+//        library1.addBook(theCrow);
     }
 
     public static void insertSeparator() {
         System.out.println("============================================================");
     }
+
 }
