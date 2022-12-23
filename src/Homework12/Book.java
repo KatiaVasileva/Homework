@@ -1,6 +1,5 @@
 package Homework12;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Book {
@@ -22,11 +21,11 @@ public class Book {
         return publishingYear;
     }
 
+    public Author getAuthor() {
+        return author;
+    }
+
     public void setPublishingYear(int publishingYear) {
-        if (publishingYear < 1445 || publishingYear > LocalDate.now().getYear()) {
-            System.out.println("Введен недействительный параметр <год издания>: " + publishingYear);
-            return;
-        }
         this.publishingYear = publishingYear;
     }
 

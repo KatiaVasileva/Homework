@@ -24,79 +24,42 @@ package Homework12;
 //  Учесть, что этот метод может быть вызван любое количество раз (от 1 до 5) и каждая новая книга должна успешно укладываться в массив.
 //  b.   Напечатать в консоль все книги из массива в следующем формате: “Stephen King: The Stand: 1978”
 
+//  Сложный уровень
+//  1.	Создать класс Library, который будет иметь своим полем массив из прошлого уровня.
+//  Учесть, что доступ к нему должен быть только из Library (private поле), а сеттеры и геттеры отсутствуют.
+//  Работать с массивом можно только через внутренние нестатические методы класса Library.
+//  2. Конструктор класса должен получать в качестве параметра размер массива и инициализировать в себе поле массива тем размером,
+//  что пришел параметром.
+//  3. Перенести методы из прошлого уровня в класс Library, сделать их нестатическими.
+//  4. Создать новые нестатические методы в классе Library:
+//  - Напечатать информацию о книге по ее названию, которое приходит в метод в качестве параметра.
+//    Формат: “The Stand by Stephen King was published in 1978”
+//  - Изменить год публикации книги по ее названию.
+//    В метод подаются два параметра, а именно: название и новый год публикации. Нужно найти книгу и изменить ее год публикации.
+
 public class Main {
     public static void main(String[] args) {
-        insertSeparator();
-        System.out.println("Библиотечный справочник");
-        insertSeparator();
+        Library library = new Library(10);
 
-        Book[] books = new Book[10];
-
-        Author author1 = new Author("Алексей", "Поляринов");
-        Book book1 = new Book("Центр тяжести", author1, 2018);
-        book1.setPublishingYear(2020);
-        books[0] = book1;
-        System.out.println(book1);
-
-        Author author2 = new Author("Адриан", "Чайковски");
-        Book book2 = new Book("Дети времени", author2, 2020);
-        books[1] = book2;
-        System.out.println(book2);
-
-        Author author3 = new Author("R.C.", "Sherriff");
-        Book book3 = new Book("The Hopkins Manuscript", author3, 1939);
-        books[2] = book3;
-        System.out.println(book3);
-
-        Author author4 = new Author("Эмили", "Сент-Джон Мантел");
-        Book book4 = new Book("Станция одиннадцать", author4, 2014);
-        books[3] = book4;
-        System.out.println(book4);
-
-        Author author5 = new Author("Якуб", "Малецкий");
-        Book book5 = new Book("Дрожь", author5, 2021);
-        books[4] = book5;
-        System.out.println(book5);
+        library.addBook("The Crow Trap", "Anne", "Cleeves", 1999);
+        library.addBook("The Woman Who Went To Bed For A Year", "Sue", "Townsend", 2012);
+        library.addBook("The Hopkins Manuscript", "R.C.", "Sherriff", 1939);
+        library.addBook("My Evil Mother", "Margaret", "Atwood", 2022);
+        library.addBook("Crossroads", "Jonathan", "Franzen", 2021);
+        library.addBook("Homegoing", "Yaa", "Gyasi", 2016);
 
         insertSeparator();
-
-        addBook(books, "Искатель", "Тана", "Френч", 2021);
+        System.out.println("List of Books");
         insertSeparator();
-        printAllBooks(books);
+        library.printAllBooks();
         insertSeparator();
-
-//  Проверка объектов на равенство. Книги являются одинаковыми, если имеют одинаковое название и одинаковое ФИО автора.
-        if (book3.equals(book4)) {
-            System.out.println("Это одна и та же книга");
-        } else {
-            System.out.println("Это разные книги");
-        }
-
+        library.printInfoAboutBook("My Evil Mother");
         insertSeparator();
-    }
-
-    public static void addBook(Book[] books, String bookName, String authorName, String authorSurname, int publishingYear) {
-        if (books[books.length - 1] != null) {
-            System.out.println("Невозможно добавить книгу, все ячейки заняты.");
-        }
-        for (int i = 0; i < books.length; i++) {
-            Book book = books[i];
-            if (book == null) {
-                Author author = new Author(authorName, authorSurname);
-                book = new Book(bookName, author, publishingYear);
-                books[i] = book;
-                System.out.println("Добавлена новая книга:\n" + book);
-                break;
-            }
-        }
-    }
-
-    public static void printAllBooks(Book[] books) {
-        for (Book book : books) {
-            if (book != null) {
-                System.out.println(book);
-            }
-        }
+        library.changePublishingYear("The Hopkins Manuscript", 1956);
+        insertSeparator();
+        System.out.println("Updated List of Books\n");
+        library.printAllBooks();
+        insertSeparator();
     }
 
     public static void insertSeparator() {
