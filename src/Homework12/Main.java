@@ -41,12 +41,13 @@ public class Main {
     public static void main(String[] args) {
         Library library = new Library(10);
 
-        library.addBook("The Crow Trap", "Anne", "Cleeves", 1999);
-        library.addBook("The Woman Who Went To Bed For A Year", "Sue", "Townsend", 2012);
-        library.addBook("The Hopkins Manuscript", "R.C.", "Sherriff", 1939);
-        library.addBook("My Evil Mother", "Margaret", "Atwood", 2022);
-        library.addBook("Crossroads", "Jonathan", "Franzen", 2021);
-        library.addBook("Homegoing", "Yaa", "Gyasi", 2016);
+        library.addBook("The Crow Trap", library.addAuthor("Anne", "Cleeves"), 1999);
+        library.addBook("The Woman Who Went To Bed For A Year", library.addAuthor("Sue", "Townsend"),
+                2012);
+        library.addBook("The Hopkins Manuscript", library.addAuthor("R.C.", "Sherriff"), 1939);
+        library.addBook("My Evil Mother", library.addAuthor("Margaret", "Atwood"), 2022);
+        library.addBook("Crossroads", library.addAuthor("Jonathan", "Franzen"), 2021);
+        library.addBook("Homegoing", library.addAuthor("Yaa", "Gyasi"), 2016);
 
         insertSeparator();
         System.out.println("List of Books");
@@ -85,8 +86,7 @@ public class Main {
         System.out.println(theWomanWhoWentToBed);
         insertSeparator();
         System.out.println("Library");
-//        Library library1 = new Library(2);
-//        library1.addBook(theCrow);
+        System.out.println(library);
     }
 
     public static void insertSeparator() {

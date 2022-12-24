@@ -11,13 +11,21 @@ public class Library {
         this.books = new Book[arraySize];
     }
 
-    public void addBook(String bookName, String authorName, String authorSurname, int publishingYear) {
+    public Author addAuthor(String authorName, String authorSurname) {
+        return new Author(authorName, authorSurname);
+    }
+
+    public void addBook(String bookName, Author author, int publishingYear) {
         checkPublishingYear(publishingYear);
         if (size >= books.length) {
             System.out.println("Невозможно добавить книгу, все ячейки заняты.");
         }
-        Author newAuthor = new Author(authorName, authorSurname);
-        Book newBook = new Book(bookName, newAuthor, publishingYear);
+        Book newBook = new Book(bookName, author, publishingYear);
+        books[size++] = newBook;
+    }
+
+    public void addBook(Book book) {
+        Book newBook = book;
         books[size++] = newBook;
     }
 
@@ -48,7 +56,16 @@ public class Library {
         }
     }
 
-//  Блок проверки передаваемых параметров
+    @Override
+    public String toString() {
+        for (int i = 0; i < size; i++) {
+            Book book = books[i];
+            System.out.println(book);
+        }
+        return null;
+    }
+
+    //  Блок проверки передаваемых параметров
     public void checkPublishingYear(int publishingYear) {
         if (publishingYear < 1445 || publishingYear > LocalDate.now().getYear()) {
             throw new IllegalArgumentException("Введен недействительный параметр <год издания>: " + publishingYear);
